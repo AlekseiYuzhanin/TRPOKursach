@@ -1,14 +1,15 @@
 import React from "react";
-import classes from '../DefaultButton.module.css';
+import './MyButton.scss'
 
 interface Props{
-    onClick: () => void;
-    children: React.ReactNode;
+    onClick?: () => void;
+    children?: React.ReactNode;
+    type?: string;
 }
 
 const DefaultButton: React.FC<Props>= ({onClick,children}) => {
     return(
-        <button className={classes.defaultButton} onClick={onClick}>
+        <button className="myButton" onClick={onClick}>
             {children}
         </button>
     )

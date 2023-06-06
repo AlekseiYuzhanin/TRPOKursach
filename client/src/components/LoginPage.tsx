@@ -1,7 +1,8 @@
-import React from "react";
+import {FC} from "react";
 import '../styles/LoginStyles.scss';
+import DefaultButton from "./UI/button/DefaultButton";
 
-function LoginPage(){
+const LoginPage:FC = () => {
     return(
         <div className="wrapper">
             <div className="container">
@@ -14,6 +15,7 @@ function LoginPage(){
                         <label>Password</label>
                         <input type="password" name="password" required/>
                     </div>
+                    <DefaultButton type="submit">Login</DefaultButton>
                 </form>
             </div>
         </div>
