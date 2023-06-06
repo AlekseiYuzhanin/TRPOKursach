@@ -2,19 +2,29 @@ import { Routes, Route, redirect } from "react-router-dom";
 import {privateRoutes, publicRoutes} from '../router'
 
 const AppRouter = () => {
-    const auth = true;
+    const auth = false;
     return (
-        auth === true
-            ?
+        auth ?
             <Routes>
-                {publicRoutes.map(route=> 
-                   <Route path={route.path}
-                          Component={route.component}/> 
+                {privateRoutes.map(route =>
+                    <Route 
+                    path={route.path} 
+                    Component={route.component} 
+                    key={route.path}
+                    />
                     )}
             </Routes>
             :
             <Routes>
-
+                {publicRoutes.map(route =>
+                    <Route 
+                    path={route.path} 
+                    Component={route.component} 
+                    key={route.path}
+                    />
+                    )}
             </Routes>
     );
 };
+
+export default AppRouter;
