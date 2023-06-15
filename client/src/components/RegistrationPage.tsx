@@ -4,7 +4,7 @@ import '../styles/RegistrationStyles.scss';
 const RegistrationPage:FC = () =>{
     return(
         <div>
-            
+            AAAAAAAAAAAAAA
         </div>
     )
 }

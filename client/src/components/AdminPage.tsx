@@ -1,11 +1,11 @@
 import { FC } from "react";
 
-const HomePage:FC = () => {
+const AdminPage:FC = () => {
     return(
         <div>
-            TEXT
+            text
         </div>
     )
 }
 
-export default HomePage;
+export default AdminPage;

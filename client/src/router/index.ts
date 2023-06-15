@@ -22,5 +22,5 @@ export const publicRoutes: IRoute[] = [
 ]
 
 export const privateRoutes: IRoute[] = [
-
+    
 ]
