@@ -19,7 +19,6 @@ const Navbar:FC = () => {
                 :
                 <Menu theme="dark" mode="horizontal" selectable={false}>
                     <Menu.Item onClick={() => router(RouterNames.LOGIN)} key={1}>Login</Menu.Item>
-                    <Menu.Item onClick={() => router(RouterNames.REGISTRATION)} key={2}>Registration</Menu.Item>
                 </Menu> 
             }
                 
