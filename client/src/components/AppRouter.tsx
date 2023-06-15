@@ -1,10 +1,12 @@
 import { Routes, Route, redirect } from "react-router-dom";
 import {privateRoutes, publicRoutes} from '../router'
+import { useSelector } from "react-redux";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 
 const AppRouter = () => {
-    const auth = false;
+    const {isAuth} = useTypedSelector(state => state.authReducer);
     return (
-        auth ?
+        isAuth ?
             <Routes>
                 {privateRoutes.map(route =>
                     <Route 
