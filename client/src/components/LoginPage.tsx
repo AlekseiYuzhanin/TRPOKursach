@@ -1,6 +1,5 @@
 import {FC} from "react";
 import '../styles/LoginStyles.scss';
-import DefaultButton from "./UI/button/DefaultButton";
 
 const LoginPage:FC = () => {
     return(
@@ -15,7 +14,6 @@ const LoginPage:FC = () => {
                         <label>Password</label>
                         <input type="password" name="password" required/>
                     </div>
-                    <DefaultButton type="submit">Login</DefaultButton>
                 </form>
             </div>
         </div>

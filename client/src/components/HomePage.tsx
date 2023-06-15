@@ -1,9 +1,10 @@
 import { FC } from "react";
+import TabsComponent from "./TabsComponent";
 
 const HomePage:FC = () => {
     return(
         <div>
-            TEXT
+            <TabsComponent></TabsComponent>
         </div>
     )
 }
