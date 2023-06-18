@@ -9,6 +9,7 @@ export class UsersController {
         
     }
 
+    @UseGuards(JwtAuthGuard)
     @Post()
     create(@Body() userDto: CreateUserDto){
         return this.usersService.createUser(userDto)
@@ -20,6 +21,7 @@ export class UsersController {
         return this.usersService.getAllUsers();
     }
 
+    @UseGuards(JwtAuthGuard)
     @Get('/:UserId')
     getUserById(@Param('UserId') UserId:number){
         return this.usersService.getSingleUser(UserId);
