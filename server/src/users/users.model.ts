@@ -1,4 +1,4 @@
-import { Table,Column,DataType,Model, CreatedAt } from "sequelize-typescript";
+import { Table,Column,DataType,Model } from "sequelize-typescript";
 
 interface UserCreationAttribute{
     login: string;
@@ -30,9 +30,6 @@ export class User extends Model<User,UserCreationAttribute> {
 
     @Column({type: DataType.BOOLEAN, defaultValue:false})
     Banned: boolean;
-
-    @Column({type: DataType.INTEGER, allowNull:false, unique:true})
-    PassportSeries: number;
 
     @Column({type: DataType.INTEGER, allowNull:false, unique:true})
     PassportNumber: number;
