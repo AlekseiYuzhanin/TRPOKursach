@@ -4,6 +4,7 @@ import { User } from './users.model';
 import { RolesService } from 'src/roles/roles.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import * as bcrypt from 'bcryptjs'
+import { BanUserDto } from './dto/ban-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -34,6 +35,13 @@ export class UsersService {
 
     async getUserByLogin(Login:string){
         const user = await this.userRepository.findOne({where: {Login},include:{all:true}})
+        return user;
+    }
+
+    async banUser(dto: BanUserDto){
+        const user = await this.userRepository.findByPk(dto.UserId)
+        user.Banned = true;
+        await user.save();
         return user;
     }
 }

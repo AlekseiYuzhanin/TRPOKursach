@@ -5,6 +5,7 @@ import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Roles } from 'src/auth/roles-auth.decorator';
 import { RolesGuard } from 'src/auth/roles.guard';
+import { BanUserDto } from './dto/ban-user.dto';
 
 @ApiTags('Users')
 @Controller('users')
@@ -48,7 +49,17 @@ export class UsersController {
     @ApiResponse({status: 200})
     @Get('getUser/:Login')
     getUserByLogin(@Param('Login') Login:string){
-        return this.usersService.getUserByLogin(Login)
+        return this.usersService.getUserByLogin(Login);
+    }
+
+    @ApiOperation({summary: "Get single user by login"})
+    @ApiResponse({status: 200})
+    @UseGuards(JwtAuthGuard)
+    @Roles("Admin")
+    @UseGuards(RolesGuard)
+    @Post('/ban')
+    banUser(@Body() dto:BanUserDto){
+        return this.usersService.banUser(dto)
     }
 
 }
