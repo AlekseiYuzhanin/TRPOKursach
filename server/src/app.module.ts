@@ -7,6 +7,7 @@ import { UsersController } from './users/users.controller';
 import { UsersModule } from './users/users.module';
 import { RolesService } from './roles/roles.service';
 import { RolesModule } from './roles/roles.module';
+import { RolesController } from './roles/roles.controller';
 
 @Module({
   imports: [
@@ -25,8 +26,5 @@ import { RolesModule } from './roles/roles.module';
     UsersModule,
     RolesModule
   ],
-  providers: [UsersService, RolesService],
-  controllers: [UsersController],
-  
 })
 export class AppModule {}
