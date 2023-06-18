@@ -28,7 +28,12 @@ export class UsersService {
     }
 
     async getSingleUser(UserId: number){
-        const user = await this.userRepository.findOne({where: {UserId}})
+        const user = await this.userRepository.findOne({where: {UserId},include:{all:true}})
+        return user;
+    }
+
+    async getUserByLogin(Login:string){
+        const user = await this.userRepository.findOne({where: {Login},include:{all:true}})
         return user;
     }
 }
