@@ -5,6 +5,7 @@ import { UsersService } from 'src/users/users.service';
 import { UsersModule } from 'src/users/users.module';
 import {JwtModule} from '@nestjs/jwt'
 import { JwtAuthGuard } from './jwt-auth.guard';
+import { RolesModule } from 'src/roles/roles.module';
 
 @Module({
   controllers: [AuthController],
