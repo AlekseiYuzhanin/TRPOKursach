@@ -12,6 +12,11 @@ import { UserRoles } from './roles/user-roles.model';
 import { AuthService } from './auth/auth.service';
 import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
+import { TownsService } from './towns/towns.service';
+import { TownsController } from './towns/towns.controller';
+import { TownsModule } from './towns/towns.module';
+import { CallsService } from './calls/calls.service';
+import { CallsModule } from './calls/calls.module';
 
 @Module({
   imports: [
@@ -30,9 +35,11 @@ import { AuthModule } from './auth/auth.module';
     UsersModule,
     RolesModule,
     UserRoles,
-    AuthModule
+    AuthModule,
+    TownsModule,
+    CallsModule
   ],
-  providers: [AuthService],
-  controllers: [AuthController],
+  providers: [AuthService, TownsService, CallsService],
+  controllers: [AuthController, TownsController],
 })
 export class AppModule {}
