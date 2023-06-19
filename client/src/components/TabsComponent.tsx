@@ -3,6 +3,7 @@ import { FC } from "react";
 import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
 import AbonentRegistrationForm from "./AbonentRegistrationForm";
+import AdminPage from "./AdminPage";
 
 const TabsComponent:FC = () =>{
   return(
@@ -14,7 +15,7 @@ const TabsComponent:FC = () =>{
           <AbonentRegistrationForm></AbonentRegistrationForm>
         </Tabs.TabPane>
         <Tabs.TabPane tab="Список звонков" key={3}>
-          <div>3</div>
+          <AdminPage/>
         </Tabs.TabPane>
         <Tabs.TabPane tab="Пополнить счет" key={4}>
           <div>4</div>
