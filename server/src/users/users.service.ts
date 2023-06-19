@@ -13,14 +13,15 @@ export class UsersService {
         
     }
     async createUser(dto: CreateUserDto){
-        const user = await this.userRepository.create(dto);
-        const role = await this.roleService.getRoleByValue("Client")
-        const hashPassword = await bcrypt.hash(user.Password,5)
-        await user.$set('roles',[role.RoleId])
-        user.roles = [role];
-        user.Password = hashPassword;
-        user.save();
-        return user;
+            const user = await this.userRepository.create(dto);
+            const role = await this.roleService.getRoleByValue("Abonent")
+            const hashPassword = await bcrypt.hash(user.Password,5)
+            await user.$set('roles',[role.RoleId])
+            user.roles = [role];
+            user.Password = hashPassword;
+            user.save();
+            return user;
+        
     }
     
     async getAllUsers(){

@@ -28,16 +28,16 @@ export class User extends Model<User,UserCreationAttribute> {
     Password: string;
 
     @Column({type: DataType.STRING, allowNull:false, unique:true})
-    NumberPhone: string;
+    PhoneNumber: string;
 
     @Column({type: DataType.BOOLEAN, defaultValue:false})
     Banned: boolean;
 
-    @Column({type: DataType.INTEGER, allowNull:false, unique:true})
-    PassportNumber: number;
+    @Column({type: DataType.BIGINT, allowNull:false, unique:true})
+    PassportNumber: bigint;
 
-    @Column({type: DataType.INTEGER, allowNull:false})
-    Ballance: number;
+    @Column({type: DataType.FLOAT, allowNull:false})
+    Ballance: bigint;
 
     @BelongsToMany(() => Role, () => UserRoles)
     roles: Role[]

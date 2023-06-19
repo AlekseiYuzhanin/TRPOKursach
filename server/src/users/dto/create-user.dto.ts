@@ -17,6 +17,6 @@ export class CreateUserDto{
     @ApiProperty({example: 'qweasd123',description: 'Пароль пользователя'})
     readonly password:string;
     @ApiProperty({example: '5123593123',description: 'Серия и номер паспорта'})
-    readonly passportnumber:number
+    readonly passportnumber:number;
 
 }

@@ -2,6 +2,7 @@ import { Tabs } from "antd";
 import { FC } from "react";
 import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
+import AbonentRegistrationForm from "./AbonentRegistrationForm";
 
 const TabsComponent:FC = () =>{
   return(
@@ -10,7 +11,7 @@ const TabsComponent:FC = () =>{
           <LoginPage></LoginPage>
         </Tabs.TabPane>
         <Tabs.TabPane tab="Зарегестрировать абонента" key={2}>
-          <div>2</div>
+          <AbonentRegistrationForm></AbonentRegistrationForm>
         </Tabs.TabPane>
         <Tabs.TabPane tab="Список звонков" key={3}>
           <div>3</div>
