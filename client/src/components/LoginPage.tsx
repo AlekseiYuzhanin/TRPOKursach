@@ -33,7 +33,7 @@ const columns: ColumnsType<IData> = [
       dataIndex: 'PhoneNumber',
     },
     {
-      title: 'Текущий баланс(в рублях)',
+      title: 'Текущий баланс (в рублях)',
       key: 'Ballance',
       dataIndex: 'Ballance',
     },

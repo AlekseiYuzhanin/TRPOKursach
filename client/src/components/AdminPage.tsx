@@ -1,10 +1,9 @@
 import { FC } from "react";
+import { Form } from "antd";
 
 const AdminPage:FC = () => {
     return(
-        <div>
-            text
-        </div>
+       <div>123</div>
     )
 }
 

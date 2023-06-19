@@ -36,7 +36,7 @@ export class User extends Model<User,UserCreationAttribute> {
     @Column({type: DataType.BIGINT, allowNull:false, unique:true})
     PassportNumber: bigint;
 
-    @Column({type: DataType.FLOAT, allowNull:false})
+    @Column({type: DataType.FLOAT,defaultValue:0})
     Ballance: bigint;
 
     @BelongsToMany(() => Role, () => UserRoles)
