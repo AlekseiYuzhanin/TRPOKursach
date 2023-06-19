@@ -26,9 +26,11 @@ const AbonentRegistrationForm:FC = () => {
     axios.post('http://localhost:5000/users', formData)
       .then((response) => {
         console.log(response.data);
+        window.alert(`Пользователь с именем ${response.data.FirstName} был успешно добавлен!`)
       })
       .catch((error) => {
         console.log(error);
+        window.alert('Такой пользователь уже существует!')
       });
   };
 
