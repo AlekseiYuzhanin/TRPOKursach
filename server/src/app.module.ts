@@ -39,7 +39,7 @@ import { CallsModule } from './calls/calls.module';
     TownsModule,
     CallsModule
   ],
-  providers: [AuthService, TownsService, CallsService],
-  controllers: [AuthController, TownsController],
+  providers: [AuthService],
+  controllers: [AuthController],
 })
 export class AppModule {}

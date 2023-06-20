@@ -16,12 +16,12 @@ export class Towns extends Model<Towns,TownCreationAttribute>{
     @Column({type: DataType.STRING, unique:true, allowNull:false})
     TownTitle:string;
 
-    @Column({type: DataType.FLOAT, unique:true, allowNull:false})
+    @Column({type: DataType.FLOAT,  allowNull:false})
     DayCost:number;
 
-    @Column({type: DataType.FLOAT, unique:true, allowNull:false})
+    @Column({type: DataType.FLOAT, allowNull:false})
     NightCost:number;
 
-    @Column({type: DataType.FLOAT, unique:true, allowNull:false})
+    @Column({type: DataType.FLOAT,  allowNull:true})
     Discont:number;
 }
