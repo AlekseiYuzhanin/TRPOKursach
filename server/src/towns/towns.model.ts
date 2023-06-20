@@ -1,4 +1,6 @@
-import { Column, DataType, Table,Model } from "sequelize-typescript";
+import { Column, DataType, Table,Model, HasMany } from "sequelize-typescript";
+import { Calls } from "src/calls/calls.model";
+import { User } from "src/users/users.model";
 
 interface TownCreationAttribute{
     TownId: number;
@@ -24,4 +26,10 @@ export class Towns extends Model<Towns,TownCreationAttribute>{
 
     @Column({type: DataType.FLOAT,  allowNull:true})
     Discont:number;
+
+    @HasMany(() => User)
+    users: User[];
+
+    @HasMany(() => Calls)
+    calls: Calls[];
 }

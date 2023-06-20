@@ -14,6 +14,8 @@ export class CreateUserDto{
     readonly ballance:number;
     @ApiProperty({example: '+79535045111',description: 'Номер телефона'})
     readonly phonenumber:string;
+    @ApiProperty({example: 'Tele2',description: 'Оператор мобильной связи'})
+    readonly phoneoperator:string;
     @ApiProperty({example: 'qweasd123',description: 'Пароль пользователя'})
     readonly password:string;
     @ApiProperty({example: '5123593123',description: 'Серия и номер паспорта'})

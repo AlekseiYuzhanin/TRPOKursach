@@ -1,4 +1,4 @@
-import { Table,Column,DataType,Model, BelongsToMany, ForeignKey } from "sequelize-typescript";
+import { Table,Column,DataType,Model, BelongsToMany, ForeignKey, BelongsTo } from "sequelize-typescript";
 import { Role } from "src/roles/roles.model";
 import { UserRoles } from "src/roles/user-roles.model";
 import { Towns } from "src/towns/towns.model";
@@ -31,6 +31,9 @@ export class User extends Model<User,UserCreationAttribute> {
     @Column({type: DataType.STRING, allowNull:false, unique:true})
     PhoneNumber: string;
 
+    @Column({type: DataType.STRING,allowNull:false})
+    PhoneOperator: string;
+
     @Column({type: DataType.BOOLEAN, defaultValue:false})
     Banned: boolean;
 
@@ -43,6 +46,9 @@ export class User extends Model<User,UserCreationAttribute> {
     @ForeignKey(() => Towns)
     @Column({type: DataType.INTEGER})
     TownId:number;
+
+    @BelongsTo(() => Towns)
+    town: Towns;
 
     @BelongsToMany(() => Role, () => UserRoles)
     roles: Role[]

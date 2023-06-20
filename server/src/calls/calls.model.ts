@@ -1,4 +1,4 @@
-import { Column, DataType, Table,Model, ForeignKey } from "sequelize-typescript";
+import { Column, DataType, Table,Model, ForeignKey, BelongsTo } from "sequelize-typescript";
 import { Towns } from "src/towns/towns.model";
 import { User } from "src/users/users.model";
 
@@ -32,4 +32,10 @@ export class Calls extends Model<Calls,CallsCreationAttribute>{
 
     @Column({type: DataType.TIME,  allowNull:true})
     TimeOfCall:number;
+
+    @BelongsTo(() => User)
+    user: User;
+
+    @BelongsTo(() => Towns)
+    town: Towns;
 }
