@@ -16,5 +16,8 @@ export class TownsController {
         return this.townsService.getTownByTitle(TownTitle)
     }
 
-    
+    @Get('/get/:TownId')
+    getTownById(@Param('TownId') TownId:number){
+        return this.townsService.getTownById(TownId)
+    }
 }

@@ -17,7 +17,7 @@ export class Calls extends Model<Calls,CallsCreationAttribute>{
     CallId: number;
 
     @ForeignKey(() => User)
-    @Column({type: DataType.INTEGER, unique:true, allowNull:false})
+    @Column({type: DataType.INTEGER, allowNull:false})
     UserId:number;
 
     @ForeignKey(() => Towns)

@@ -11,9 +11,9 @@ import { ApiTags } from '@nestjs/swagger';
 export class RolesController {
     constructor(private rolesService:RolesService){}
 
-    @UseGuards(JwtAuthGuard)
-    @Roles("Admin")
-    @UseGuards(RolesGuard)
+    //@UseGuards(JwtAuthGuard)
+    //@Roles("Admin")
+    //@UseGuards(RolesGuard)
     @Post()
     createRole(@Body() createRoleDto: CreateRoleDto){
         return this.rolesService.createRole(createRoleDto);

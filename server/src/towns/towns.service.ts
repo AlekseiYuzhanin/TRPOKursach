@@ -18,4 +18,9 @@ export class TownsService {
         const town = await this.townRepository.findOne({where:{TownTitle},include:{all:true}})
         return town;
     }
+
+    async getTownById(TownId: number){
+        const town = await this.townRepository.findOne({where: {TownId}, include: {all:true}})
+        return town;
+    }
 }
