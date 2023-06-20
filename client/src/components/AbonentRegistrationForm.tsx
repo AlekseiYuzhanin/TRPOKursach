@@ -17,10 +17,10 @@ const AbonentRegistrationForm:FC = () => {
     const [formData, setFormData] = useState<FormData>({ LastName: '',
      FirstName: '',
       MiddleName: '',
-    Login: '',
-    Password: '',
-    PhoneNumber: '',
-    PassportNumber: '' });
+      Login: '',
+      Password: '',
+      PhoneNumber: '',
+      PassportNumber: '' });
 
     const handleSubmit = () => {
     axios.post('http://localhost:5000/users', formData)

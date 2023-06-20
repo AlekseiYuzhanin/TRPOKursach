@@ -4,6 +4,7 @@ import { Table } from "antd";
 import { ColumnsType } from "antd/es/table";
 
 interface IData {
+    Login:string;
     LastName: string;
     FirstName:string;
     MiddleName:string;
@@ -12,6 +13,11 @@ interface IData {
 }
 
 const columns: ColumnsType<IData> = [
+    {
+      title: 'Логин',
+      dataIndex: 'Login',
+      key: 'Login'
+    },
     {
       title: 'Фамилия',
       dataIndex: 'LastName',

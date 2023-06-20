@@ -1,6 +1,7 @@
-import { Table,Column,DataType,Model, BelongsToMany } from "sequelize-typescript";
+import { Table,Column,DataType,Model, BelongsToMany, ForeignKey } from "sequelize-typescript";
 import { Role } from "src/roles/roles.model";
 import { UserRoles } from "src/roles/user-roles.model";
+import { Towns } from "src/towns/towns.model";
 
 interface UserCreationAttribute{
     login: string;
@@ -38,6 +39,10 @@ export class User extends Model<User,UserCreationAttribute> {
 
     @Column({type: DataType.FLOAT,defaultValue:0})
     Ballance: bigint;
+
+    @ForeignKey(() => Towns)
+    @Column({type: DataType.INTEGER})
+    TownId:number;
 
     @BelongsToMany(() => Role, () => UserRoles)
     roles: Role[]
