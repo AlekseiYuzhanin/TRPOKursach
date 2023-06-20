@@ -14,7 +14,6 @@ export class CallsService {
 
     async createCall(dto: CreateCallDto){
         const call = await this.callsRepository.create(dto);
-        const user = await this.userService.getSingleUser(1);
         const town = await this.townService.getTownById(1);
         return call;
     }
