@@ -61,19 +61,26 @@ export class UsersController {
         return this.usersService.banUser(dto)
     }
 
-    @Put('/:UserId')
+    @Put('/:UserId/UpdateOperator')
     updateOperator(@Param('UserId') UserId:number,@Body()dto:UpdateOperatorDto){
         return this.usersService.updateOperator(UserId,dto)
     }
 
-   @Put('/:UserId/increase/Ballance/')
-   increaseBalance(@Param('UserId') UserId:number, @Body('amount') amount:bigint){
-     return this.usersService.increaseUserBallance(UserId,amount);
-   }
+    @Put('/:UserId/increase/Ballance/')
+    increaseBalance(@Param('UserId') UserId:number, @Body('amount') amount:bigint){
+        return this.usersService.increaseUserBallance(UserId,amount);
+    }
 
-   @Put('/:UserId/decrease/Ballance/')
-   decreaseBalance(@Param('UserId') UserId:number, @Body('amount') amount:bigint){
-     return this.usersService.decreaseUserBallance(UserId,amount);
-   }
+    @Put('/:UserId/decrease/Ballance/')
+    decreaseBalance(@Param('UserId') UserId:number, @Body('amount') amount:bigint){
+        return this.usersService.decreaseUserBallance(UserId,amount);
+    }
+
+    @Put('/:UserId/UpdateUser')
+    updateUser(@Param('UserId') UserId:number,@Body()user:Partial<User>){
+        return this.usersService.updateUserData(UserId,user)
+    }
+
+
 
 }
