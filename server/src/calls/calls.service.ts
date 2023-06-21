@@ -15,13 +15,13 @@ export class CallsService {
 
     async createCall(dto: CreateCallDto){
         const call = await this.callsRepository.create(dto);
-        return call
+        const finalPrice = await this.calculateCallPrice(call.CallId)
+        call.FinalPrice = finalPrice
+        call.save()
+        return call;
     }
+    
 
-    getCallHours(hour:Date){
-        hour.getHours()
-        return hour;
-    }
 
     async calculateCallPrice(CallId: number){
         const call = await this.callsRepository.

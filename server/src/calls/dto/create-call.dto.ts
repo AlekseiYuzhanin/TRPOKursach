@@ -1,4 +1,5 @@
 export class CreateCallDto{
+    readonly CallId:number;
     readonly UserId:number;
     readonly TownId: number;
     readonly DateOfCalling:Date;
