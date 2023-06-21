@@ -1,4 +1,4 @@
-import { Body, Controller, Post,Get,Param, UseGuards } from '@nestjs/common';
+import { Body, Controller, Post,Get,Param, UseGuards, Put } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
@@ -6,6 +6,7 @@ import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Roles } from 'src/auth/roles-auth.decorator';
 import { RolesGuard } from 'src/auth/roles.guard';
 import { BanUserDto } from './dto/ban-user.dto';
+import { UpdateOperatorDto } from './dto/update-operator.dto';
 
 @ApiTags('Users')
 @Controller('users')
@@ -49,7 +50,7 @@ export class UsersController {
         return this.usersService.getUserByLogin(Login);
     }
 
-    @ApiOperation({summary: "Get single user by login"})
+    @ApiOperation({summary: "Ban user"})
     @ApiResponse({status: 200})
     @UseGuards(JwtAuthGuard)
     @Roles("Admin")
@@ -58,5 +59,12 @@ export class UsersController {
     banUser(@Body() dto:BanUserDto){
         return this.usersService.banUser(dto)
     }
+
+    @Put('/:UserId')
+    updateOperator(@Param('UserId') UserId:number,@Body()dto:UpdateOperatorDto){
+        return this.usersService.updateOperator(UserId,dto)
+    }
+
+    
 
 }

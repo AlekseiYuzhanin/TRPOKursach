@@ -18,9 +18,28 @@ export class CallsService {
         return call
     }
 
+    getCallHours(hour:Date){
+        hour.getHours()
+        return hour;
+    }
+
     async calculateCallPrice(CallId: number){
-        const call = await this.callsRepository.findOne({where: {CallId},include: [{model: this.userRepository},{model:this.townRepository}]})
-        return call.town.NightCost * call.CallDuration * call.town.Discont;
+        const call = await this.callsRepository.
+        findOne({where: {CallId},include: [{model: this.userRepository},
+            {model:this.townRepository}]})
+        const newTime = String(call.TimeOfCall).slice(0,2)
+        if((Number(newTime) > 22  ) || (Number(newTime) > 0 && Number(newTime) <= 6)){
+            return call.town.NightCost * call.CallDuration * call.town.Discont;
+        }
+        if((Number(newTime) > 7)  || (Number(newTime) < 21)){
+            return call.town.DayCost * call.CallDuration * call.town.Discont;
+        }
+            
+    }
+
+    async getAllCalls(){
+        const calls = await this.callsRepository.findAll();
+        return calls;
     }
 
 }

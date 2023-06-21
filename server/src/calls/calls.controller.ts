@@ -8,7 +8,7 @@ export class CallsController {
 
     }
 
-    @Post()
+    @Post('')
     createRole(@Body() createRoleDto: CreateCallDto){
         return this.callsService.createCall(createRoleDto);
     }
@@ -16,5 +16,10 @@ export class CallsController {
     @Get("/:CallId")
     calculateCallPrice(@Param('CallId') CallId:number){
         return this.callsService.calculateCallPrice(CallId)
+    }
+
+    @Get('')
+    getAllCalls(){
+        return this.callsService.getAllCalls()
     }
 }

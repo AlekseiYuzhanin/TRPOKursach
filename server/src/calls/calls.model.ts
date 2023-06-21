@@ -25,13 +25,13 @@ export class Calls extends Model<Calls,CallsCreationAttribute>{
     TownId:number;
 
     @Column({type: DataType.DATE, allowNull:false})
-    DateOfCalling:number;
+    DateOfCalling:Date;
 
     @Column({type: DataType.INTEGER,  allowNull:true})
     CallDuration:number;
 
     @Column({type: DataType.TIME,  allowNull:true})
-    TimeOfCall:number;
+    TimeOfCall:Date;
 
     @BelongsTo(() => User)
     user: User;

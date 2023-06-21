@@ -5,6 +5,7 @@ import { RolesService } from 'src/roles/roles.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import * as bcrypt from 'bcryptjs'
 import { BanUserDto } from './dto/ban-user.dto';
+import { UpdateOperatorDto } from './dto/update-operator.dto';
 
 @Injectable()
 export class UsersService {
@@ -12,7 +13,7 @@ export class UsersService {
                 private roleService: RolesService) {
         
     }
-    async createUser(dto: CreateUserDto){
+    async createUser(dto: CreateUserDto):Promise<User>{
             const user = await this.userRepository.create(dto);
             const role = await this.roleService.getRoleByValue("Abonent")
             const hashPassword = await bcrypt.hash(user.Password,5)
@@ -34,15 +35,25 @@ export class UsersService {
         return user;
     }
 
-    async getUserByLogin(Login:string){
+    async getUserByLogin(Login:string):Promise<User>{
         const user = await this.userRepository.findOne({where: {Login},include:{all:true}})
         return user;
     }
 
-    async banUser(dto: BanUserDto){
+    async banUser(dto: BanUserDto):Promise<User>{
         const user = await this.userRepository.findByPk(dto.UserId)
         user.Banned = true;
         await user.save();
         return user;
+    }
+
+    async updateOperator(UserId: number,dto:UpdateOperatorDto){
+            const updatedUserOperator = await this.userRepository.update(dto,{where:{UserId}})
+            return updatedUserOperator;
+    }
+
+    async updateUserData(UserId: number, user:Partial<User>){
+        const updatedUser = await this.userRepository.update(user,{where:{UserId}})
+        return updatedUser;
     }
 }
