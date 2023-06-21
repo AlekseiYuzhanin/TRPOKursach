@@ -7,6 +7,7 @@ import { Roles } from 'src/auth/roles-auth.decorator';
 import { RolesGuard } from 'src/auth/roles.guard';
 import { BanUserDto } from './dto/ban-user.dto';
 import { UpdateOperatorDto } from './dto/update-operator.dto';
+import { User } from './users.model';
 
 @ApiTags('Users')
 @Controller('users')
@@ -35,9 +36,9 @@ export class UsersController {
     
     @ApiOperation({summary: "Get single user by id"})
     @ApiResponse({status: 200})
-    @UseGuards(JwtAuthGuard)
-    @Roles("Admin")
-    @UseGuards(RolesGuard)
+    //@UseGuards(JwtAuthGuard)
+    //@Roles("Admin")
+    //@UseGuards(RolesGuard)
     @Get('/:UserId')
     getUserById(@Param('UserId') UserId:number){
         return this.usersService.getSingleUser(UserId);
@@ -65,7 +66,14 @@ export class UsersController {
         return this.usersService.updateOperator(UserId,dto)
     }
 
-   
+   @Put('/:UserId/increase/Ballance/')
+   increaseBalance(@Param('UserId') UserId:number, @Body('amount') amount:bigint){
+     return this.usersService.increaseUserBallance(UserId,amount);
+   }
 
+   @Put('/:UserId/decrease/Ballance/')
+   decreaseBalance(@Param('UserId') UserId:number, @Body('amount') amount:bigint){
+     return this.usersService.decreaseUserBallance(UserId,amount);
+   }
 
 }

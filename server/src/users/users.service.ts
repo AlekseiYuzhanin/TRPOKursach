@@ -32,23 +32,23 @@ export class UsersService {
     }
 
     async increaseUserBallance(UserId:number, amount:bigint){
-        const user = await this.userRepository.findOne({where: {UserId},include:{all:true}})
-        user.Ballance = user.Ballance+=amount
-        user.save()
+        const user = await this.userRepository.findByPk(UserId)
+        user.Ballance +=amount;
+        await user.save();
         return user;
     }
 
     async decreaseUserBallance(UserId:number, amount:bigint){
-        const user = await this.userRepository.findOne({where: {UserId},include:{all:true}})
-        user.Ballance = user.Ballance-=amount
-        user.save()
+        const user = await this.userRepository.findByPk(UserId)
+        user.Ballance -=amount;
+        await user.save();
         return user;
     }
 
 
     async getSingleUser(UserId: number){
         const user = await this.userRepository.findOne({where: {UserId},include:{all:true}})
-        return user;
+        return user.Ballance;
     }
 
     async getUserByLogin(Login:string):Promise<User>{
