@@ -20,14 +20,14 @@ export class UsersController {
     //@UseGuards(JwtAuthGuard)
     //@Roles("Admin")
     //@UseGuards(RolesGuard)
-    @Post()
+    @Post('')
     create(@Body() userDto: CreateUserDto){
         return this.usersService.createUser(userDto)
     }
 
     @ApiOperation({summary: "Getting all users"})
     @ApiResponse({status: 200})
-    @Get()
+    @Get('')
     getAll(){
         return this.usersService.getAllUsers();
     }
@@ -65,6 +65,7 @@ export class UsersController {
         return this.usersService.updateOperator(UserId,dto)
     }
 
-    
+   
+
 
 }

@@ -6,6 +6,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import * as bcrypt from 'bcryptjs'
 import { BanUserDto } from './dto/ban-user.dto';
 import { UpdateOperatorDto } from './dto/update-operator.dto';
+import { UserBallanceDto } from './dto/user-balance.dto';
 
 @Injectable()
 export class UsersService {
@@ -29,6 +30,21 @@ export class UsersService {
          const users = await this.userRepository.findAll({include:{all:true}});
          return users;
     }
+
+    async increaseUserBallance(UserId:number, amount:bigint){
+        const user = await this.userRepository.findOne({where: {UserId},include:{all:true}})
+        user.Ballance = user.Ballance+=amount
+        user.save()
+        return user;
+    }
+
+    async decreaseUserBallance(UserId:number, amount:bigint){
+        const user = await this.userRepository.findOne({where: {UserId},include:{all:true}})
+        user.Ballance = user.Ballance-=amount
+        user.save()
+        return user;
+    }
+
 
     async getSingleUser(UserId: number){
         const user = await this.userRepository.findOne({where: {UserId},include:{all:true}})
