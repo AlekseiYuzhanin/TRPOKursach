@@ -3,6 +3,7 @@ import '../styles/LoginStyles.scss';
 import { Table } from "antd";
 import { ColumnsType } from "antd/es/table";
 import { Typography } from "antd";
+import { json } from "stream/consumers";
 
 interface IData {
     CallId:number
@@ -39,11 +40,8 @@ const columns: ColumnsType<IData> = [
     },
     {
       title: 'Межгородний',
-      dataIndex: 'TownId',
-      key: 'TownId',
-      render: (TownId:any, user) => (
-        TownId === user.TownId ? 'Нет' : 'Да'
-      ),
+      dataIndex: 'isCityMatchUser',
+      key: 'isCityMatchUser',
     },
     {
       title: 'Дата звонка',
@@ -74,22 +72,29 @@ const columns: ColumnsType<IData> = [
     },
   ];
 
+
 const CallsPage:FC = () => {
 
     const [data,setData] = useState<IData[]>([]);
 
-    const getUsers = async () => {
+   
+      const processedData = data.map((item) => ({
+        ...item,
+        isCityMatchUser: item.TownId === item.user.TownId ? "Нет" : "Да"
+      }))
+
+    const getCalls = async () => {
         const response = await fetch('http://localhost:5000/calls');
         const jsonData = await response.json();
         setData(jsonData);
       };
 
     useEffect(() => {
-        getUsers()
+        getCalls()
     }, []);
 
     return(
-        <Table dataSource={data} columns={columns}/>
+        <Table dataSource={processedData} columns={columns}/>
     )
 }
 
