@@ -12,7 +12,7 @@ interface FormData {
     PassportNumber: string;
 }
 
-const AbonentRegistrationForm:FC = () => {
+const DepositPage:FC = () => {
     const [form] = Form.useForm();
     const [formData, setFormData] = useState<FormData>({ LastName: '',
      FirstName: '',
@@ -47,32 +47,17 @@ const AbonentRegistrationForm:FC = () => {
             justifyContent:"center", 
              maxWidth:"800px"}}
              >
-                <Form.Item label="Фамилия" name="LastName" />
+                <Form.Item label="Логин" name="LastName" />
                 <Input name="LastName" value={formData.LastName} 
                 onChange={handleInputChange} style={{maxWidth:"400px"}}/>
-                <Form.Item label="Имя" name="FirstName"/>
+                <Form.Item label="Сумма" name="FirstName"/>
                 <Input name="FirstName" value={formData.FirstName} 
                 onChange={handleInputChange} style={{maxWidth:"400px"}} />
-                <Form.Item label="Отчество" name="MiddleName" />
-                <Input name="MiddleName" value={formData.MiddleName} 
-                onChange={handleInputChange} style={{maxWidth:"400px"}}/>
-                <Form.Item label="Номер телефона" name="PhoneNumber" />
-                <Input name="PhoneNumber" value={formData.PhoneNumber} 
-                onChange={handleInputChange} style={{maxWidth:"400px"}} />
-                <Form.Item label="Номер паспорта" name="PassportNumber" />
-                <Input name="PassportNumber" value={formData.PassportNumber} 
-                onChange={handleInputChange} style={{maxWidth:"400px"}} />
-                <Form.Item label="Логин" name="Login" />
-                <Input name="Login" value={formData.Login} 
-                onChange={handleInputChange} style={{maxWidth:"400px"}} />
-                <Form.Item label="Пароль" name="Password"/>
-                <Input name="Password" value={formData.Password} 
-                onChange={handleInputChange} style={{maxWidth:"400px"}}/>
                 <Form.Item style={{paddingTop:"20px"}}>
-                    <Button type="primary" htmlType="submit" style={{width:"200px"}}>Зарегистрировать</Button>
+                    <Button type="primary" htmlType="submit" style={{width:"200px"}}>Пополнить</Button>
                 </Form.Item>
             </Form>
     )
 }
 
-export default AbonentRegistrationForm;
+export default DepositPage;

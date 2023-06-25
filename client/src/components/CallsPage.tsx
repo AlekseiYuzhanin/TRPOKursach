@@ -2,6 +2,7 @@ import {FC, useEffect, useState} from "react";
 import '../styles/LoginStyles.scss';
 import { Table } from "antd";
 import { ColumnsType } from "antd/es/table";
+import { Typography } from "antd";
 
 interface IData {
     CallId:number
@@ -37,9 +38,12 @@ const columns: ColumnsType<IData> = [
       render: (user:any) => `${user.PhoneNumber}`
     },
     {
-      title: 'Межгородской',
-      dataIndex: 'LastName',
-      key: '1',
+      title: 'Межгородний',
+      dataIndex: 'TownId',
+      key: 'TownId',
+      render: (TownId:any, user) => (
+        TownId === user.TownId ? 'Нет' : 'Да'
+      ),
     },
     {
       title: 'Дата звонка',

@@ -5,6 +5,7 @@ import LoginPage from "./LoginPage";
 import AbonentRegistrationForm from "./AbonentRegistrationForm";
 import AdminPage from "./AdminPage";
 import CallsPage from "./CallsPage";
+import DepositPage from "./DepositPage";
 
 const TabsComponent:FC = () =>{
   return(
@@ -19,7 +20,7 @@ const TabsComponent:FC = () =>{
           <CallsPage/>
         </Tabs.TabPane>
         <Tabs.TabPane tab="Пополнить счет" key={4}>
-          <div>4</div>
+          <DepositPage></DepositPage>
         </Tabs.TabPane>
         <Tabs.TabPane tab="Моя информация" key={5}>
           <div>5</div>
