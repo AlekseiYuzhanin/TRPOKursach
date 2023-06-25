@@ -5,4 +5,5 @@ export class CreateCallDto{
     readonly DateOfCalling:Date;
     readonly CallDuration:number;
     readonly TimeOfCall:Date;
+    readonly FinalPrice:bigint;
 }

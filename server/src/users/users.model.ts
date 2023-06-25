@@ -48,7 +48,7 @@ export class User extends Model<User,UserCreationAttribute> {
     TownId:number;
 
     @BelongsTo(() => Towns)
-    town: Towns;
+    town: Towns[];
 
     @BelongsToMany(() => Role, () => UserRoles)
     roles: Role[]

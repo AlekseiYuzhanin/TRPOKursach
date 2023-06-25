@@ -33,7 +33,7 @@ export class Calls extends Model<Calls,CallsCreationAttribute>{
     @Column({type: DataType.TIME,  allowNull:true})
     TimeOfCall:Date;
 
-    @Column({type:DataType.INTEGER,allowNull:true})
+    @Column({type:DataType.FLOAT,allowNull:true})
     FinalPrice:number;
 
     @BelongsTo(() => User)

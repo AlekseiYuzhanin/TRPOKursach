@@ -17,7 +17,7 @@ export class CallsService {
         const call = await this.callsRepository.create(dto);
         const finalPrice = await this.calculateCallPrice(call.CallId)
         call.FinalPrice = finalPrice
-        call.save()
+        await call.save()
         return call;
     }
     
@@ -38,7 +38,8 @@ export class CallsService {
     }
 
     async getAllCalls(){
-        const calls = await this.callsRepository.findAll();
+        const calls = await this.callsRepository.findAll({include : {all:true}});
+        
         return calls;
     }
 

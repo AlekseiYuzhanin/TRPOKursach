@@ -13,11 +13,11 @@ export enum RouterNames{
     HOME = '/'
 }
 
-export const publicRoutes: IRoute[] = [
+export const privateRoutes: IRoute[] = [
     {path: RouterNames.LOGIN, exact:true,component:LoginPage},
     {path: RouterNames.HOME, exact:true, component:HomePage}
 ]
 
-export const privateRoutes: IRoute[] = [
+export const publicRoutes: IRoute[] = [
     
 ]

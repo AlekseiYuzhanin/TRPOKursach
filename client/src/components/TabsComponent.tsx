@@ -4,10 +4,11 @@ import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
 import AbonentRegistrationForm from "./AbonentRegistrationForm";
 import AdminPage from "./AdminPage";
+import CallsPage from "./CallsPage";
 
 const TabsComponent:FC = () =>{
   return(
-      <Tabs tabPosition="left" style={{paddingTop: "10%", alignItems: "center", justifyContent:"center"}}>
+      <Tabs tabPosition="top" style={{paddingTop: "10%", alignItems: "center", justifyContent:"center"}}>
         <Tabs.TabPane tab="Список абонентов" key={1}>
           <LoginPage></LoginPage>
         </Tabs.TabPane>
@@ -15,7 +16,7 @@ const TabsComponent:FC = () =>{
           <AbonentRegistrationForm></AbonentRegistrationForm>
         </Tabs.TabPane>
         <Tabs.TabPane tab="Список звонков" key={3}>
-          <AdminPage/>
+          <CallsPage/>
         </Tabs.TabPane>
         <Tabs.TabPane tab="Пополнить счет" key={4}>
           <div>4</div>
@@ -23,7 +24,7 @@ const TabsComponent:FC = () =>{
         <Tabs.TabPane tab="Моя информация" key={5}>
           <div>5</div>
         </Tabs.TabPane>
-        <Tabs.TabPane tab="Заблокировать абонента" key={6}>
+        <Tabs.TabPane tab="Заблокировать" key={6}>
           <div>6</div>
         </Tabs.TabPane>
       </Tabs>
