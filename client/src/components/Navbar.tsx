@@ -13,7 +13,7 @@ const Navbar:FC = () => {
                 {isAuth 
                 ?
                 <Menu theme="dark" mode="horizontal" selectable={false}>
-                    <div style={{color: 'white'}}>Admin</div>
+                    <div style={{color: 'white'}}>Трухаев Виктор</div>
                     <Menu.Item key={1}>Logout</Menu.Item>
                 </Menu>
                 :

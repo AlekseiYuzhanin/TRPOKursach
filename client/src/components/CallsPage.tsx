@@ -53,6 +53,7 @@ const columns: ColumnsType<IData> = [
       title: 'Длительность звонка',
       dataIndex: `CallDuration`,
       key: 'CallDuration',
+      render: (CallDuration:any) => CallDuration !== null ? `${String(CallDuration) + 'm'}` : 'Не дозвонился'
     },
     {
       title: 'Скидка',
@@ -68,7 +69,7 @@ const columns: ColumnsType<IData> = [
     {
       title: 'Итоговая стомость',
       key: 'FinalPrice',
-      dataIndex: 'FinalPrice',
+      dataIndex: 'FinalPrice'
     },
   ];
 

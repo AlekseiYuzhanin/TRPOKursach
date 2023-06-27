@@ -12,7 +12,7 @@ interface FormData {
     PassportNumber: string;
 }
 
-const DepositPage:FC = () => {
+const BanUser:FC = () => {
     const [form] = Form.useForm();
     const [formData, setFormData] = useState<FormData>({ LastName: '',
      FirstName: '',
@@ -50,14 +50,14 @@ const DepositPage:FC = () => {
                 <Form.Item label="Логин" name="LastName" />
                 <Input name="LastName" value={formData.LastName} 
                 onChange={handleInputChange} style={{maxWidth:"400px"}}/>
-                <Form.Item label="Сумма" name="FirstName"/>
+                <Form.Item label="Причина" name="FirstName"/>
                 <Input name="FirstName" value={formData.FirstName} 
                 onChange={handleInputChange} style={{maxWidth:"400px"}} />
                 <Form.Item style={{paddingTop:"20px"}}>
-                    <Button type="primary" htmlType="submit" style={{width:"200px"}}>Пополнить</Button>
+                    <Button type="primary" htmlType="submit" style={{width:"200px"}}>Заблокировать</Button>
                 </Form.Item>
             </Form>
     )
 }
 
-export default DepositPage;
+export default BanUser;

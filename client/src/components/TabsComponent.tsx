@@ -6,6 +6,8 @@ import AbonentRegistrationForm from "./AbonentRegistrationForm";
 import AdminPage from "./AdminPage";
 import CallsPage from "./CallsPage";
 import DepositPage from "./DepositPage";
+import MyInfo from "./MyInfo";
+import BanUser from "./BanUser";
 
 const TabsComponent:FC = () =>{
   return(
@@ -23,10 +25,10 @@ const TabsComponent:FC = () =>{
           <DepositPage></DepositPage>
         </Tabs.TabPane>
         <Tabs.TabPane tab="Моя информация" key={5}>
-          <div>5</div>
+          <MyInfo></MyInfo>
         </Tabs.TabPane>
         <Tabs.TabPane tab="Заблокировать" key={6}>
-          <div>6</div>
+          <BanUser></BanUser>
         </Tabs.TabPane>
       </Tabs>
   )
